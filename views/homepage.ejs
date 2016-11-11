@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel Itinerary Management System</title>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<!-- Loading the AngularJS file from /public/angularJS folder -->
+<script src="angularjs/homepage.js"></script>
+</head>
+
+<body ng-app="homepage" ng-controller="homepage">
+<div class="container">
+
+<h1>Choose source and destination places</h1>
+<br><br>
+
+<div class="row">
+<div class="outerClass col-xs-6">
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{selectedSource}}
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li ng-repeat="source in sources"><a ng-click="selectSource(source)">{{source}}</a></li>
+     </ul>
+  </div>
+  </div>
+  
+  <div class="outerClass2 col-xs-6">
+  <div class="dropdown2">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{selectedDestination}}
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li ng-repeat="destination in destinations"><a ng-click="selectDestination(destination)">{{destination}}</a></li>
+    </ul>
+  </div>
+  </div>
+  
+</div>
+
+<br><br><br>
+  <div class="button">
+  <input type="submit" class="btn btn-success" ng-click="checkPlaces();" value="Add" />
+  </div>
+  
+  <br><br>
+  <div class="alert alert-danger" ng-hide="setAlert">
+		<strong>Please select source and destination!</strong>
+  </div>
+					
+  <br><br><br>
+  <table class="table table-bordered table-width">
+  <thead>
+    <tr>
+      <th>Source</th>
+      <th>Destination</th>
+    </tr>
+  </thead>
+   <tbody>
+    <tr ng-repeat="place in places">
+      <td>{{place.source}}</td>
+      <td>{{place.destination}}</td>
+    </tr>
+  </tbody>
+  
+</table>
+</div>
+</body>
+</html>
